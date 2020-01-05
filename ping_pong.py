@@ -1,7 +1,7 @@
 import turtle
 import winsound
 
-#window
+# Window
 wn = turtle.Screen()
 wn.title("Pong by BT")
 wn.bgcolor("black")
@@ -33,11 +33,10 @@ paddle_b.penup()
 paddle_b.goto(350,0)
 
 # Ball
-
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("circle")
-ball.color("white")
+ball.color("yellow")
 ball.penup()
 ball.goto(0,0)
 ball.dx = 0.2 #delta or speed
@@ -51,8 +50,8 @@ pen.penup()
 pen.hideturtle()
 pen.goto(0,260)
 pen.write("Player A: 0 Player B: 0",align = "center", font = ("Courier",24,"normal"))
-# Function
 
+# Function
 def paddle_a_up ():
     y = paddle_a.ycor()
     if y <=230:
@@ -99,12 +98,12 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
-        #winsound.PlaySound("bounce.wav",winsound.SND_ASYNC)
+        #winsound.PlaySound("bounce.wav",winsound.SND_ASYNC) # uncomment this to play sound when hitting borders
         
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
-        #winsound.PlaySound("bounce.wav",winsound.SND_ASYNC)
+        #winsound.PlaySound("bounce.wav",winsound.SND_ASYNC) # uncomment this to play sound when hitting borders
         
     # Border checking right and left
     if  ball.xcor() > 390:
@@ -127,9 +126,9 @@ while True:
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor()+ 40 and ball.ycor() > paddle_b.ycor() - 40):
         ball.setx(340)
         ball.dx *= -1.2
-        #winsound.PlaySound("bounce.wav",winsound.SND_ASYNC)
+        #winsound.PlaySound("bounce.wav",winsound.SND_ASYNC) # uncomment this to play sound when paddle hits ball
         
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor()+ 40 and ball.ycor() > paddle_a.ycor() - 40):
         ball.setx(-340)
         ball.dx *= -1.2
-        #winsound.PlaySound("bounce.wav",winsound.SND_ASYNC)
+        #winsound.PlaySound("bounce.wav",winsound.SND_ASYNC) # uncomment this to play sound when paddle hits ball
